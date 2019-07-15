@@ -15,7 +15,7 @@ mythic_notify
 ## Usage
 
 1. Upload esx_jj-tax to your resources
-2. Add start esx_bobbypin to your server.cfg/resources.cfg
+2. Add start esx_jj-tax to your server.cfg/resources.cfg
 3. Customise the config.lua to your preferences
 
 ```lua
