@@ -1,12 +1,12 @@
 Config = {}
 
-Config.Hour = 10
-Config.UseMythicNotifications = true -- set to false if you want to use normal chat
-Config.UseVehicleTax = true -- Tax vehicles seperatly to owned money
+Config.Hour = 2
+Config.UseMythicNotifications = false -- set to false if you want to use normal chat
+Config.UseVehicleTax = false -- Tax vehicles seperatly to owned money
 Config.UsePropertyTax = false -- Tax property seperatly to owned money
 
 -- Amount Citizen owns in money and assets
-Config.Low = 300000
+Config.Low = 400000
 Config.High = 1000000
 
 -- Amount to tax in percentage

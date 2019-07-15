@@ -21,26 +21,28 @@ Citizen.CreateThread(function()
         if oldHour == nil then
             oldHour = newHour
             Citizen.Wait(100)
-            print("old hour is: " .. oldHour)
         end
 
         Citizen.Wait(100)
         modHour = oldHour + Config.Hour
 
         if modHour > 23 then -- if modHour is above 11 pm
-            local difference = math.fmod (modHour, 24) -- find the difference between the modified hour and 12 am
-            local oldDif = math.fmod(oldHour, 24) -- find the difference between the old hour and 12 am
+            if modHour == 24 then
+                modHour = 0
+            else
+                local difference = math.fmod (modHour, 24) -- find the difference between the modified hour and 12 am
+                local oldDif = math.fmod(oldHour, 24) -- find the difference between the old hour and 12 am
 
-            difference = difference - oldDif -- take the oldDif off the difference
-            modHour = 0 + difference -- add it onto 0 to be the new tax hour
+                difference = difference - oldDif -- take the oldDif off the difference
+                modHour = 0 + difference -- add it onto 0 to be the new tax hour
+            end
         end
 
         if newHour == modHour then
             print("triggering tax")
             TriggerServerEvent('esx_jj-tax:taxPlayer')
             oldHour = newHour
-            print(oldHour)
-        end 
+        end
 	end
 end)
 

@@ -54,18 +54,15 @@ function Tax(src)
 
         playerFullMoney = GetPercent(playerFullMoney, "tax")
         Citizen.Wait(100)
-        print("Player tax amount is: " .. playerFullMoney)
 
         if playerTaxAssets ~= 0 then
             playerFullMoney = playerFullMoney + playerTaxAssets
             Citizen.Wait(100)
-            print("Player tax amount with assets is: " .. playerFullMoney)
         end
 
         --deduct from citizen, notify them and add to police and ems accounts.
         if playerFullMoney ~= 0 then 
             local message = "tax amount of $" .. playerFullMoney .. " has been deducted from your bank"
-            xPlayer.removeAccountMoney('bank', playerFullMoney)
             if Config.UseMythicNotifications == true then 
                 TriggerClientEvent('esx_jj-tax:notifiyTax', src, message)         
             else
@@ -82,7 +79,6 @@ function GrabVehiclePrice(_vehNames)
         MySQL.Async.fetchAll('SELECT price FROM `vehicles` WHERE `model` = @model', { ['@model'] = w }, function(price)
             for e,r in pairs(price) do
                 for t,y in pairs(r) do
-                    print(y)
                    am = am + tonumber(y)
                 end
             end
@@ -113,12 +109,10 @@ function GiveToGov(money) -- Half the money given and give to both police and em
     local half = money / 2
 
     TriggerEvent('esx_addonaccount:getSharedAccount', 'society_police', function(sharedAccount)
-        print("inside sharedAccount")
         sharedAccount.addMoney(half)
     end)
 
     TriggerEvent('esx_addonaccount:getSharedAccount', 'society_ambulance', function(sharedAccount)
-        print("inside sharedAccount")
         sharedAccount.addMoney(half)
     end)
 end
