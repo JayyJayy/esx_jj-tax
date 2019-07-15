@@ -44,14 +44,16 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
-	while true do
-        Citizen.Wait(0)
-        if(IsControlJustPressed(1, 178)) then
-            TriggerServerEvent('esx_jj-tax:taxPlayer')
-        end
-    end
-end)
+-- used for debugging
+
+-- Citizen.CreateThread(function()
+-- 	while true do
+--         Citizen.Wait(0)
+--         if(IsControlJustPressed(1, 178)) then
+--             TriggerServerEvent('esx_jj-tax:taxPlayer')
+--         end
+--     end
+-- end)
 
 RegisterNetEvent('esx_jj-tax:getVehName')
 AddEventHandler('esx_jj-tax:getVehName', function()
