@@ -8,6 +8,8 @@ mysql-async
 
 esx_advangedgarage
 
+esx_property
+
 ### optional
 
 mythic_notify
